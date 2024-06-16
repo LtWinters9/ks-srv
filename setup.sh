@@ -16,21 +16,12 @@ cat <<EOF
 EOF
 
 # -------------------------------------------
-# Vars
+# Functions
 # -------------------------------------------
-SMTP_TO=""
-SMTP_FROM=""
-SMTP_SERVER=""
-SMTP_USER=""
-SMTP_AUTH=''
-
-########################
-# functions start here #
-########################
 
 function start_script {
 echo "Please type your full hostname"
-echo "Example: subdomain.domain"
+echo "Example: edge.kloudstack.net"
 echo ""
 read NHST
 # Set names
@@ -48,7 +39,7 @@ function end_script {
 }
 
 ###### Script start
-echo "Let's get started..."
+./toast.sh
 echo ""
 if start_script
 then
@@ -56,5 +47,5 @@ then
  exit 0
 else
  echo " Setup failed - sending email"
- swaks --to ${SMTP_TO} --from ${SMTP_FROM} --server ${SMTP_SERVER} --auth-user ${SMTP_USER} --auth-password ${SMTP_AUTH} --body "failed to update on $(date '+%Y-%m-%d')" --header 'Subject: UPDATE FAILED for ${HOSTNAME}' ; exit 1
+./alert.sh
 fi
