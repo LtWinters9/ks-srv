@@ -6,52 +6,40 @@ set -e
 # Ensure we are running the updater  as root
 # -------------------------------------------
 if [[ $EUID -ne 0 ]]; then
-  echo "  Aborting because you are not root" ; exit 1
+echo "  Aborting because you are not root" ; exit 1
 fi
 
 cat <<EOF
-  
-  -----------------------------------------------------------------
-  This script updates the server
-  -----------------------------------------------------------------
+-----------------------------------------------------------------
+*** This script will update ${HOSTNAME} ***
+-----------------------------------------------------------------
 EOF
 
 # -------------------------------------------
-# Vars
+# Functions
 # -------------------------------------------
-SMTP_TO=""
-SMTP_FROM=""
-SMTP_SERVER=""
-SMTP_USER=""
-SMTP_AUTH=''
-
-HN=${HOSTNAME}
-
-########################
-# functions start here #
-########################
 
 function start_script {
 echo "Starting Script"
-sudo apt-get update && sudo apt-get upgrade -y 2> /dev/null
-clear
+sudo apt-get -qq update && sudo apt-get upgrade -y 2> /dev/null
 sleep 1
-sudo apt-get --with-new-pkgs upgrade -y 2> /dev/null
+sudo apt-get -qq --with-new-pkgs upgrade -y 2> /dev/null
 }
 
 function end_script {
-clear
-echo "Cleaning up"
-sudo apt-get autoremove -y 2> /dev/null
-clear
+sudo apt-get -qq autoremove -y 2> /dev/null
 }
 
-if start_script
+###### Script start
+./toast.sh
+echo ""
+if start_script && clear
 then
- end_script
-echo Finished updating - ${HN}
+ end_script && clear
+ echo ${HOSTNAME}: Updated!
  exit 0
 else
- echo " Script failed - sending email"
- swaks --to ${SMTP_TO} --from ${SMTP_FROM} --server ${SMTP_SERVER} --auth-user ${SMTP_USER} --auth-password ${SMTP_AUTH} --body "failed to update on $(date '+%Y-%m-%d')" --header 'Subject: UPDATE FAILED for ${HN}' ; exit 1
+echo ${HOSTNAME}: Failed to update!
+echo "Sending Notification"
+./alert.sh
 fi
