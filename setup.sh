@@ -20,6 +20,7 @@ EOF
 # -------------------------------------------
 
 function start_script {
+sudo apt-get -qq install -y swaks 2> /dev/null
 echo "Please type your full hostname"
 echo "Example: edge.kloudstack.net"
 echo ""
@@ -31,7 +32,6 @@ echo "Your hostname is now ${NHST}"
 sleep 1
 clear
 echo "Updating ${NHST}"
-sudo apt-get -qq install -y swaks 2> /dev/null
 }
 
 function end_script {
