@@ -29,8 +29,6 @@ Ensure the following environment variables are set or modify the script:
 - SMTP_USER
 - SMTP_AUTH (or stored in `/root/.smtp_password`)
 
-## License
-MIT License
 ----------------------------------------------------------------------
 # 🛠️ System Upgrade Script (`update.sh`)
 
