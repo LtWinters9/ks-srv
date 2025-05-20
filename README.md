@@ -18,7 +18,7 @@ This script automates the process of setting a hostname, updating the system, cl
 
 ## Usage
 \`\`\`bash
-sudo ./update_and_hostname.sh
+sudo ./setup.sh
 \`\`\`
 
 ## SMTP Setup
