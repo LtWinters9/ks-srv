@@ -1,4 +1,4 @@
-# 🛠️ System Update & Hostname Configuration Script
+# 🛠️ System Update & Hostname Configuration Script (`setup.sh`)
 
 ## Description
 This script automates the process of setting a hostname, updating the system, cleaning up unused packages, and sending an alert email if the update fails.
