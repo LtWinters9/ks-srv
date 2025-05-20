@@ -35,4 +35,6 @@ This script automates:
 ### 🚀 Usage
 
 ```bash
-sudo ./setup.sh && update.sh
+sudo chmod +x setup.sh update.sh
+sudo ./setup.sh
+sudo ./update.sh
