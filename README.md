@@ -17,8 +17,9 @@ This script automates the process of setting a hostname, updating the system, cl
 - SMTP credentials stored in `/root/.smtp_password`
 
 ## Usage
-\`\`\`bash
+```bash
 sudo ./setup.sh
+
 
 
 ## SMTP Setup
@@ -47,6 +48,6 @@ This Bash script automates the process of updating and upgrading a Debian-based 
 
 ## 🚀 Usage
 
-\`\`\`bash
-sudo ./update.sh
 
+```bash
+sudo ./update.sh
