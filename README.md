@@ -32,3 +32,22 @@ Ensure the following environment variables are set or modify the script:
 ## License
 MIT License
 ----------------------------------------------------------------------
+# 🛠️ System Upgrade Script (`update.sh`)
+
+This Bash script automates the process of updating and upgrading a Debian-based Linux system. It supports interactive and non-interactive modes, logs all actions, and provides multiple upgrade options.
+
+## 🔍 Features
+
+- **Root check**: Ensures the script is run with root privileges.
+- **Logging**: All actions are logged to `/var/log/upgrade_script.log`.
+- **Upgrade options**:
+  - `Standard`: Regular `apt upgrade`.
+  - `Dry-run`: Simulates the upgrade without making changes.
+  - `Full`: Executes `apt full-upgrade`.
+- **Interactive prompt**: Asks the user to choose an upgrade type unless run non-interactively (e.g., via cron).
+- **Clean exit**: Logs script termination and clears the terminal.
+
+## 🚀 Usage
+
+```bash
+sudo ./update.sh
