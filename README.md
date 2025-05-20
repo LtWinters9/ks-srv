@@ -47,5 +47,6 @@ This Bash script automates the process of updating and upgrading a Debian-based 
 
 ## 🚀 Usage
 
-```bash
+\`\`\`bash
 sudo ./update.sh
+\`\`\`
