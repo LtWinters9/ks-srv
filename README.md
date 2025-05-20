@@ -19,7 +19,7 @@ This script automates the process of setting a hostname, updating the system, cl
 ## Usage
 \`\`\`bash
 sudo ./setup.sh
-\`\`\`
+
 
 ## SMTP Setup
 Ensure the following environment variables are set or modify the script:
@@ -49,4 +49,4 @@ This Bash script automates the process of updating and upgrading a Debian-based 
 
 \`\`\`bash
 sudo ./update.sh
-\`\`\`
+
